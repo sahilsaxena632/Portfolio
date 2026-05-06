@@ -40,7 +40,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative isolate flex min-h-[100svh] w-full items-center overflow-hidden"
+      className="relative isolate flex min-h-[88svh] w-full items-center overflow-hidden pb-12 pt-20 sm:min-h-[100svh] sm:py-0"
     >
       <div className="pointer-events-none absolute inset-0 z-0">
         <HeroScene />
@@ -78,7 +78,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: EASE_OUT, delay: 0.18 }}
-            className="mt-8 font-mono text-xs uppercase tracking-[0.32em] text-zinc-400"
+            className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-400 sm:mt-8 sm:text-xs sm:tracking-[0.32em]"
           >
             {siteConfig.role} · {siteConfig.discipline}
           </motion.p>
@@ -87,7 +87,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: EASE_OUT, delay: 0.28 }}
-            className="font-display mt-5 text-[clamp(3rem,9vw,7.5rem)] font-semibold leading-[0.95] tracking-tight text-white"
+            className="font-display mt-4 text-[clamp(2.5rem,11vw,7.5rem)] font-semibold leading-[0.95] tracking-tight text-white sm:mt-5"
           >
             <span className="block">{siteConfig.firstName}</span>
             <span className="block bg-gradient-to-b from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent">
@@ -99,10 +99,10 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: EASE_OUT, delay: 0.5 }}
-            className="mt-8 max-w-2xl text-balance text-base leading-relaxed text-zinc-300 sm:text-lg"
+            className="mt-6 max-w-2xl text-balance text-[15px] leading-relaxed text-zinc-300 sm:mt-8 sm:text-lg"
           >
             {siteConfig.brandStatement}
-            <span className="mt-2 block text-sm leading-relaxed text-zinc-500 sm:text-base">
+            <span className="mt-2 hidden text-sm leading-relaxed text-zinc-500 sm:block sm:text-base">
               {siteConfig.brandSubline}
             </span>
           </motion.p>
@@ -111,7 +111,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: EASE_OUT, delay: 0.7 }}
-            className="mt-10 flex flex-col items-center gap-3 sm:flex-row"
+            className="mt-7 flex flex-row flex-wrap items-center justify-center gap-2 sm:mt-10 sm:gap-3"
           >
             <Button href={siteConfig.ctas.primary.href} variant="primary">
               {siteConfig.ctas.primary.label}
@@ -138,7 +138,7 @@ export function HeroSection() {
             delay: 1.4,
           },
         }}
-        className="absolute inset-x-0 bottom-8 z-20 flex justify-center"
+        className="absolute inset-x-0 bottom-8 z-20 hidden justify-center sm:flex"
         aria-hidden
       >
         <div className="flex flex-col items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-zinc-500">

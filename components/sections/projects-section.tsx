@@ -17,12 +17,12 @@ export function ProjectsSection() {
   const [openProjectId, setOpenProjectId] = useState(projects[0]?.id ?? "");
 
   return (
-    <section id="projects" className="relative overflow-hidden py-24 sm:py-32">
+    <section id="projects" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
       <div
         aria-hidden
-        className="absolute left-1/2 top-20 h-96 w-96 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(124,255,212,0.12),transparent_65%)] blur-3xl"
+        className="absolute left-1/2 top-20 hidden h-96 w-96 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(124,255,212,0.12),transparent_65%)] blur-3xl sm:block"
       />
-      <Container className="relative z-10 space-y-12">
+      <Container className="relative z-10 space-y-8 sm:space-y-12">
         <SectionHeading
           eyebrow="Featured Work"
           title="Projects as product systems"
@@ -96,7 +96,7 @@ function ProjectCaseStudyCard({
         type="button"
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="relative z-10 grid w-full gap-8 p-5 text-left sm:p-7 lg:grid-cols-[minmax(0,1fr)_19rem] lg:p-8"
+        className="relative z-10 grid w-full gap-5 p-4 text-left sm:gap-8 sm:p-7 lg:grid-cols-[minmax(0,1fr)_19rem] lg:p-8"
       >
         <div className="space-y-6">
           <div className="flex flex-wrap items-center gap-3">
@@ -140,9 +140,9 @@ function ProjectCaseStudyCard({
           </div>
         </div>
 
-        <div className="relative min-h-56 overflow-hidden rounded-3xl border border-white/10 bg-black/30 p-5">
+        <div className="relative min-h-[12rem] overflow-hidden rounded-3xl border border-white/10 bg-black/30 p-4 sm:min-h-56 sm:p-5">
           <ProjectVisual project={project} />
-          <div className="absolute inset-x-5 bottom-5 rounded-2xl border border-white/10 bg-black/45 p-4 backdrop-blur-md">
+          <div className="absolute inset-x-4 bottom-4 rounded-2xl border border-white/10 bg-black/45 p-3 backdrop-blur-md sm:inset-x-5 sm:bottom-5 sm:p-4">
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">
               Visual focus
             </p>
@@ -163,7 +163,7 @@ function ProjectCaseStudyCard({
             transition={{ duration: 0.35, ease: EASE_OUT }}
             className="relative z-10 overflow-hidden"
           >
-            <div className="border-t border-white/10 px-5 pb-6 pt-6 sm:px-7 lg:px-8 lg:pb-8">
+            <div className="border-t border-white/10 px-4 pb-5 pt-5 sm:px-7 sm:pb-6 sm:pt-6 lg:px-8 lg:pb-8">
               <div className="grid gap-4 lg:grid-cols-3">
                 {detailLabels.map(([key, label]) => (
                   <DetailPanel
@@ -215,7 +215,7 @@ function DetailPanel({
   return (
     <div
       className={[
-        "rounded-3xl border p-5",
+        "rounded-3xl border p-4 sm:p-5",
         highlight
           ? "border-[rgba(124,255,212,0.18)] bg-[rgba(124,255,212,0.05)]"
           : "border-white/10 bg-black/20",
@@ -239,7 +239,7 @@ function ListPanel({
   accent?: boolean;
 }) {
   return (
-    <div className="rounded-3xl border border-white/10 bg-black/20 p-5">
+    <div className="rounded-3xl border border-white/10 bg-black/20 p-4 sm:p-5">
       <p
         className={[
           "font-mono text-[11px] uppercase tracking-[0.2em]",

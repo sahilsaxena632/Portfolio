@@ -26,14 +26,14 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden py-24 sm:py-32"
+      className="relative overflow-hidden py-16 sm:py-24 lg:py-32"
     >
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent"
       />
 
-      <Container className="relative z-10 grid gap-12 lg:grid-cols-[minmax(0,1fr)_22rem]">
+      <Container className="relative z-10 grid gap-8 sm:gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-12">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}

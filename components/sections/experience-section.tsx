@@ -13,19 +13,19 @@ export function ExperienceSection() {
     experience.find((entry) => entry.id === activeId) ?? experience[0];
 
   return (
-    <section id="experience" className="relative overflow-hidden py-24 sm:py-32">
+    <section id="experience" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-24 h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(122,162,255,0.10),transparent_65%)] blur-3xl"
+        className="pointer-events-none absolute left-1/2 top-24 hidden h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(122,162,255,0.10),transparent_65%)] blur-3xl sm:block"
       />
-      <Container className="relative z-10 space-y-12">
+      <Container className="relative z-10 space-y-8 sm:space-y-12">
         <SectionHeading
           eyebrow="Experience"
           title="A backend journey through scale, reliability, and ownership"
           description="A timeline of shipped systems, performance gains, cloud optimization, and distributed workflow ownership drawn directly from resume experience."
         />
 
-        <div className="grid gap-8 lg:grid-cols-[22rem_minmax(0,1fr)]">
+        <div className="grid gap-6 lg:grid-cols-[22rem_minmax(0,1fr)] lg:gap-8">
           <TimelineRail activeId={activeId} onSelect={setActiveId} />
           <AnimatePresence mode="wait">
             <ExperiencePanel key={activeExperience.id} entry={activeExperience} />

@@ -15,12 +15,12 @@ const signalStyles = {
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="relative overflow-hidden py-24 sm:py-32">
+    <section id="skills" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent"
       />
-      <Container className="space-y-12">
+      <Container className="space-y-8 sm:space-y-12">
         <SectionHeading
           eyebrow="Technical Ecosystem"
           title="Skills as a connected system"

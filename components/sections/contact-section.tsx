@@ -31,18 +31,18 @@ const contactActions = [
 
 export function ContactSection() {
   return (
-    <section id="contact" className="relative overflow-hidden py-24 sm:py-32">
+    <section id="contact" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-20 h-[30rem] w-[30rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(124,255,212,0.12),transparent_68%)] blur-3xl"
+        className="pointer-events-none absolute left-1/2 top-20 hidden h-[30rem] w-[30rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(124,255,212,0.12),transparent_68%)] blur-3xl sm:block"
       />
-      <Container className="relative z-10 space-y-10">
+      <Container className="relative z-10 space-y-8 sm:space-y-10">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={VIEWPORT_REVEAL}
           transition={{ duration: 0.5, ease: EASE_OUT }}
-          className="overflow-hidden rounded-[2rem] border border-white/12 bg-[linear-gradient(145deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-6 backdrop-blur-xl sm:p-8 lg:p-10"
+          className="overflow-hidden rounded-[2rem] border border-white/12 bg-[linear-gradient(145deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-5 backdrop-blur-xl sm:p-8 lg:p-10"
         >
           <div
             aria-hidden

@@ -55,17 +55,17 @@ export function LabSection() {
   }, [activeFilter]);
 
   return (
-    <section id="lab" className="relative overflow-hidden py-24 sm:py-32">
+    <section id="lab" className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-16 h-[30rem] w-[30rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(167,139,250,0.10),transparent_68%)] blur-3xl"
+        className="pointer-events-none absolute left-1/2 top-16 hidden h-[30rem] w-[30rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(167,139,250,0.10),transparent_68%)] blur-3xl sm:block"
       />
 
-      <Container className="relative z-10 space-y-10">
+      <Container className="relative z-10 space-y-8 sm:space-y-10">
         <SectionHeading
           eyebrow="Innovation Lab"
           title="Experiments, prototypes, and technical curiosity"
