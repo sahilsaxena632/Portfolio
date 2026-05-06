@@ -63,6 +63,20 @@ export function TopNav() {
             Get in touch
           </Link>
         </div>
+        <nav
+          aria-label="Mobile section shortcuts"
+          className="no-scrollbar flex gap-2 overflow-x-auto pb-2 md:hidden"
+        >
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="shrink-0 rounded-full border border-white/12 bg-white/[0.04] px-3 py-1.5 text-xs text-zinc-300 transition-colors hover:border-white/25 hover:text-zinc-100"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
       </Container>
     </header>
   );
