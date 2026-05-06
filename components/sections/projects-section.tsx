@@ -140,9 +140,11 @@ function ProjectCaseStudyCard({
           </div>
         </div>
 
-        <div className="relative min-h-[12rem] overflow-hidden rounded-3xl border border-white/10 bg-black/30 p-4 sm:min-h-56 sm:p-5">
-          <ProjectVisual project={project} />
-          <div className="absolute inset-x-4 bottom-4 rounded-2xl border border-white/10 bg-black/45 p-3 backdrop-blur-md sm:inset-x-5 sm:bottom-5 sm:p-4">
+        <div className="flex min-h-[12rem] flex-col overflow-hidden rounded-3xl border border-white/10 bg-black/30 sm:min-h-56">
+          <div className="relative min-h-[11rem] flex-1 overflow-hidden p-4 sm:min-h-[15rem] sm:p-5">
+            <ProjectVisual project={project} />
+          </div>
+          <div className="shrink-0 border-t border-white/10 bg-zinc-950/95 p-3 backdrop-blur-md sm:p-4">
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">
               Visual focus
             </p>
@@ -270,32 +272,35 @@ function ProjectVisual({ project }: { project: PortfolioProject }) {
 
   if (isFlagship) {
     return (
-      <div className="absolute inset-0 p-5">
-        <div className="absolute right-8 top-7 h-24 w-24 rounded-full bg-[var(--accent-mint)] opacity-20 blur-3xl" />
-        <div className="grid h-full grid-rows-[auto_1fr_auto] gap-3">
-          <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-3">
+      <div className="relative h-full min-h-[10rem]">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute right-2 top-2 h-16 w-16 rounded-full bg-[var(--accent-mint)] opacity-20 blur-2xl sm:right-6 sm:top-4 sm:h-24 sm:w-24 sm:blur-3xl"
+        />
+        <div className="grid h-full min-h-[9.5rem] grid-rows-[auto_1fr_auto] gap-2 sm:gap-3">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-2.5 sm:p-3">
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">
               Analyst asks
             </p>
-            <p className="mt-2 text-sm text-zinc-200">
+            <p className="mt-1.5 text-xs leading-snug text-zinc-200 sm:mt-2 sm:text-sm">
               Show revenue trends by selected tables
             </p>
           </div>
-          <div className="rounded-2xl border border-[rgba(124,255,212,0.18)] bg-black/35 p-3">
+          <div className="min-h-0 rounded-2xl border border-[rgba(124,255,212,0.18)] bg-black/35 p-2.5 sm:p-3">
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--accent-mint)]">
               Schema-aware SQL
             </p>
-            <div className="mt-3 space-y-2">
+            <div className="mt-2 space-y-1.5 sm:mt-3 sm:space-y-2">
               <span className="block h-2 w-4/5 rounded-full bg-white/20" />
               <span className="block h-2 w-2/3 rounded-full bg-white/15" />
               <span className="block h-2 w-3/4 rounded-full bg-[rgba(124,255,212,0.35)]" />
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
             {["Validated", "Charts", "Cards"].map((label) => (
               <div
                 key={label}
-                className="rounded-xl border border-white/10 bg-white/[0.05] p-2 text-center text-[11px] text-zinc-300"
+                className="rounded-xl border border-white/10 bg-white/[0.05] p-1.5 text-center text-[10px] text-zinc-300 sm:p-2 sm:text-[11px]"
               >
                 {label}
               </div>
@@ -307,9 +312,9 @@ function ProjectVisual({ project }: { project: PortfolioProject }) {
   }
 
   return (
-    <div className="absolute inset-0 p-5">
-      <div className="absolute left-8 top-8 h-20 w-20 rounded-full bg-[var(--accent-blue)] opacity-15 blur-3xl" />
-      <div className="grid h-full place-items-center">
+    <div className="relative flex h-full min-h-[10rem] items-center justify-center">
+      <div className="pointer-events-none absolute left-6 top-6 h-16 w-16 rounded-full bg-[var(--accent-blue)] opacity-15 blur-2xl sm:left-8 sm:top-8 sm:h-20 sm:w-20 sm:blur-3xl" />
+      <div className="grid place-items-center">
         <div className="relative h-36 w-36">
           <div className="absolute inset-0 rounded-full border border-white/10" />
           <div className="absolute inset-5 rounded-full border border-[rgba(122,162,255,0.28)]" />
