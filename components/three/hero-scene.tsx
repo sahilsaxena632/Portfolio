@@ -163,18 +163,11 @@ function ParallaxGroup({
 
 function readMediaState() {
   if (typeof window === "undefined") {
-    return { lowPower: false, reduced: false, veryLowPower: false };
+    return { lowPower: false, reduced: false };
   }
-  const connection = (
-    "connection" in navigator
-      ? (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
-      : undefined
-  )?.saveData;
-
   return {
     lowPower: window.matchMedia("(max-width: 768px)").matches,
     reduced: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-    veryLowPower: window.matchMedia("(max-width: 480px)").matches || Boolean(connection),
   };
 }
 
@@ -184,26 +177,17 @@ export function HeroScene() {
 
   useEffect(() => {
     const mqMobile = window.matchMedia("(max-width: 768px)");
-    const mqVeryMobile = window.matchMedia("(max-width: 480px)");
     const mqMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const sync = () => {
-      const connection = (
-        "connection" in navigator
-          ? (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
-          : undefined
-      )?.saveData;
       setMedia({
         lowPower: mqMobile.matches,
         reduced: mqMotion.matches,
-        veryLowPower: mqVeryMobile.matches || Boolean(connection),
       });
     };
     mqMobile.addEventListener("change", sync);
-    mqVeryMobile.addEventListener("change", sync);
     mqMotion.addEventListener("change", sync);
     return () => {
       mqMobile.removeEventListener("change", sync);
-      mqVeryMobile.removeEventListener("change", sync);
       mqMotion.removeEventListener("change", sync);
     };
   }, []);
@@ -217,11 +201,7 @@ export function HeroScene() {
     return () => window.removeEventListener("pointermove", handler);
   }, []);
 
-  const { lowPower, reduced, veryLowPower } = media;
-
-  if (veryLowPower) {
-    return null;
-  }
+  const { lowPower, reduced } = media;
 
   return (
     <Canvas
