@@ -19,7 +19,7 @@ export function Button({
 
   const styles =
     variant === "primary"
-      ? "bg-[var(--accent-mint)] text-zinc-950 shadow-[0_0_24px_rgba(124,255,212,0.25)] hover:shadow-[0_0_32px_rgba(124,255,212,0.45)] hover:scale-[1.02]"
+      ? "bg-[#5cd9b0] text-zinc-950 shadow-[0_0_18px_rgba(92,217,176,0.18)] hover:bg-[#6fe3bf] hover:shadow-[0_0_26px_rgba(92,217,176,0.32)] hover:scale-[1.02]"
       : "border border-white/15 bg-white/5 text-zinc-100 backdrop-blur-md hover:border-white/30 hover:bg-white/[0.08]";
 
   if (external) {
