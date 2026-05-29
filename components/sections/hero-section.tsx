@@ -40,7 +40,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative isolate flex min-h-[88svh] w-full items-center overflow-hidden pb-12 pt-20 sm:min-h-[100svh] sm:py-0"
+      className="relative isolate flex min-h-[86svh] w-full items-center overflow-hidden pb-16 pt-24 sm:min-h-[100svh] sm:py-0"
     >
       <div className="pointer-events-none absolute inset-0 z-0">
         <HeroScene />
@@ -78,7 +78,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: EASE_OUT, delay: 0.18 }}
-            className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-400 sm:mt-8 sm:text-xs sm:tracking-[0.32em]"
+            className="mt-5 font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-400 sm:mt-7 sm:text-xs sm:tracking-[0.32em]"
           >
             {siteConfig.role} · {siteConfig.discipline}
           </motion.p>
@@ -87,31 +87,36 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: EASE_OUT, delay: 0.28 }}
-            className="font-display mt-4 text-[clamp(2.5rem,11vw,7.5rem)] font-semibold leading-[0.95] tracking-tight text-white sm:mt-5"
+            className="font-display mt-3 text-[clamp(2.25rem,8vw,4.5rem)] font-semibold leading-[0.98] tracking-tight sm:mt-4"
           >
-            <span className="block">{siteConfig.firstName}</span>
-            <span className="block bg-gradient-to-b from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent">
-              {siteConfig.lastName}
+            <span className="bg-gradient-to-b from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent">
+              {siteConfig.name}
             </span>
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: EASE_OUT, delay: 0.5 }}
-            className="mt-6 max-w-2xl text-balance text-[15px] leading-relaxed text-zinc-300 sm:mt-8 sm:text-lg"
+            transition={{ duration: 0.8, ease: EASE_OUT, delay: 0.42 }}
+            className="font-display mt-5 max-w-3xl text-balance text-[clamp(1.25rem,4vw,2rem)] font-medium leading-snug text-white sm:mt-6"
           >
             {siteConfig.brandStatement}
-            <span className="mt-2 hidden text-sm leading-relaxed text-zinc-500 sm:block sm:text-base">
-              {siteConfig.brandSubline}
-            </span>
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: EASE_OUT, delay: 0.56 }}
+            className="mt-4 max-w-2xl text-[15px] leading-relaxed text-zinc-400 sm:text-base"
+          >
+            {siteConfig.brandSubline}
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: EASE_OUT, delay: 0.7 }}
-            className="mt-7 flex flex-row flex-wrap items-center justify-center gap-2 sm:mt-10 sm:gap-3"
+            transition={{ duration: 0.6, ease: EASE_OUT, delay: 0.72 }}
+            className="mt-8 flex flex-row flex-wrap items-center justify-center gap-3 sm:mt-9"
           >
             <Button href={siteConfig.ctas.primary.href} variant="primary">
               {siteConfig.ctas.primary.label}

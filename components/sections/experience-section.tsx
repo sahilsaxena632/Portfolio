@@ -21,8 +21,8 @@ export function ExperienceSection() {
       <Container className="relative z-10 space-y-8 sm:space-y-12">
         <SectionHeading
           eyebrow="Experience"
-          title="A backend journey through scale, reliability, and ownership"
-          description="A timeline of shipped systems, performance gains, cloud optimization, and distributed workflow ownership drawn directly from resume experience."
+          title="Three years shipping backend at scale"
+          description="Each role, the systems I owned, and the numbers they moved."
         />
 
         <div className="grid gap-6 lg:grid-cols-[22rem_minmax(0,1fr)] lg:gap-8">
@@ -115,62 +115,46 @@ function ExperiencePanel({ entry }: { entry: ExperienceEntry }) {
       />
 
       <div className="relative z-10">
-        <div className="flex flex-col gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-start sm:justify-between">
-          <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--accent-mint)]">
-              {entry.period}
-            </p>
-            <h3 className="font-display mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-              {entry.role}
-            </h3>
-            <p className="mt-2 text-sm text-zinc-400">
-              {entry.company}
-              {entry.location ? ` / ${entry.location}` : ""}
-            </p>
-          </div>
-          <div className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">
-              Growth signal
-            </p>
-            <p className="mt-1 text-sm text-zinc-300">{entry.phase}</p>
-          </div>
+        <div className="border-b border-white/10 pb-5">
+          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--accent-mint)]">
+            {entry.period}
+          </p>
+          <h3 className="font-display mt-2.5 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+            {entry.role}
+          </h3>
+          <p className="mt-1.5 text-sm text-zinc-400">
+            {entry.company}
+            {entry.location ? ` · ${entry.location}` : ""}
+          </p>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-zinc-300">
+            {entry.summary}
+          </p>
         </div>
 
-        <p className="mt-6 max-w-3xl text-base leading-8 text-zinc-300">
-          {entry.summary}
-        </p>
-
-        <div className="mt-7 grid gap-5 xl:grid-cols-[0.9fr_1.1fr]">
-          <div className="rounded-3xl border border-white/10 bg-black/20 p-5">
-            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">
-              Built / Improved
-            </p>
-            <ul className="mt-4 grid gap-3 text-sm leading-6 text-zinc-300">
-              {entry.ownership.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent-blue)]" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="rounded-3xl border border-[rgba(124,255,212,0.18)] bg-[rgba(124,255,212,0.05)] p-5">
-            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--accent-mint)]">
-              Impact
-            </p>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              {entry.impact.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-2xl border border-white/10 bg-black/25 p-4 text-sm leading-6 text-zinc-200"
-                >
-                  {item}
-                </div>
-              ))}
+        <div className="mt-5 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+          {entry.impact.map((metric) => (
+            <div
+              key={metric.label}
+              className="rounded-2xl border border-[rgba(124,255,212,0.18)] bg-[rgba(124,255,212,0.05)] p-3.5"
+            >
+              <p className="font-display text-xl font-semibold tracking-tight text-[var(--accent-mint)] sm:text-2xl">
+                {metric.value}
+              </p>
+              <p className="mt-1 text-xs leading-5 text-zinc-400">
+                {metric.label}
+              </p>
             </div>
-          </div>
+          ))}
         </div>
+
+        <ul className="mt-5 grid gap-2.5 text-sm leading-6 text-zinc-300 sm:grid-cols-2">
+          {entry.ownership.map((item) => (
+            <li key={item} className="flex gap-3">
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent-blue)]" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
 
         <div className="mt-5 flex flex-wrap gap-2">
           {entry.stack.map((tech) => (

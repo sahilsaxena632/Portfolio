@@ -1,3 +1,8 @@
+export type ExperienceMetric = {
+  value: string;
+  label: string;
+};
+
 export type ExperienceEntry = {
   id: string;
   company: string;
@@ -7,7 +12,7 @@ export type ExperienceEntry = {
   phase: string;
   summary: string;
   ownership: string[];
-  impact: string[];
+  impact: ExperienceMetric[];
   stack: string[];
 };
 
@@ -15,88 +20,68 @@ export const experience: ExperienceEntry[] = [
   {
     id: "fig1-stars",
     company: "Fig1 Inc.",
-    role: "Contract Software Engineer - STARS Logistics Platform",
-    period: "Feb 2025 - Present",
+    role: "Contract Software Engineer",
+    period: "Feb 2025 — Present",
     location: "Remote",
-    phase: "Current ownership across logistics systems",
+    phase: "Logistics systems at scale",
     summary:
-      "Designed and enhanced backend systems across API server, sync service, and queue-based architecture for high-volume logistics workflows.",
+      "Own backend across API, sync, and queue services for a high-volume logistics platform.",
     ownership: [
-      "Enhanced backend systems across API, sync, and queue services.",
-      "Implemented asynchronous workflows with PG-Boss and PostgreSQL queues.",
-      "Built sync services integrating the external BRATS system.",
-      "Added idempotent processing and concurrency controls for distributed data integrity.",
+      "Hardened API and sync services powering high-volume logistics workflows.",
+      "Moved heavy work to PG-Boss queues with idempotency and concurrency controls.",
+      "Built sync services integrating the external BRATS system for near real-time consistency.",
+      "Tuned PostgreSQL queries and indexes to cut response times.",
     ],
     impact: [
-      "Handled 100K+ daily transactions.",
-      "Processed 50K+ background jobs/day.",
-      "Reduced API response times by up to 35%.",
-      "Reduced manual discrepancies by 40%.",
-      "Improved PostgreSQL query performance by 30%.",
-      "Reduced queue failures and retry rates by 25%.",
+      { value: "100K+", label: "Daily transactions" },
+      { value: "50K+", label: "Background jobs/day" },
+      { value: "35%", label: "Faster API responses" },
+      { value: "25%", label: "Fewer queue failures" },
     ],
-    stack: ["Node.js", "REST APIs", "PostgreSQL", "PG-Boss", "Queues"],
+    stack: ["Node.js", "PostgreSQL", "PG-Boss", "REST APIs"],
   },
   {
     id: "etelligens",
-    company: "Etelligens Technologies Pvt. Ltd.",
+    company: "Etelligens Technologies",
     role: "Software Engineer",
-    period: "May 2024 - Jan 2025",
-    phase: "Cloud-native scale and cost optimization",
+    period: "May 2024 — Jan 2025",
+    phase: "Cloud-native scale & cost",
     summary:
-      "Developed and optimized RESTful and serverless APIs while improving performance, throughput, cloud cost, and production observability.",
+      "Built and optimized RESTful and serverless APIs on AWS, improving throughput, latency, and cloud cost.",
     ownership: [
-      "Developed and optimized 50+ RESTful and serverless APIs.",
-      "Managed DynamoDB workloads with strong consistency requirements.",
-      "Improved API performance using Redis caching, batch processing, and asynchronous execution.",
-      "Implemented logging and monitoring with CloudWatch and ELK.",
+      "Built and optimized 50+ RESTful and serverless APIs on AWS Lambda.",
+      "Ran DynamoDB workloads with strong consistency at high throughput.",
+      "Cut latency with Redis caching, batch processing, and async execution.",
+      "Added logging and monitoring with CloudWatch and ELK.",
     ],
     impact: [
-      "Reduced API response times by 40%.",
-      "Managed DynamoDB with 99% availability.",
-      "Handled up to 1M read/write operations per second.",
-      "Improved API performance by 30%.",
-      "Reduced API costs by 25%.",
+      { value: "1M", label: "Read/write ops per second" },
+      { value: "99%", label: "DynamoDB availability" },
+      { value: "40%", label: "Faster API responses" },
+      { value: "25%", label: "Lower API cost" },
     ],
-    stack: [
-      "Node.js",
-      "AWS Lambda",
-      "DynamoDB",
-      "Redis",
-      "CloudWatch",
-      "ELK",
-    ],
+    stack: ["Node.js", "AWS Lambda", "DynamoDB", "Redis", "CloudWatch", "ELK"],
   },
   {
     id: "fig1-backend",
     company: "Fig1 Inc.",
     role: "Software Engineer",
-    period: "Jan 2023 - Dec 2023",
+    period: "Jan 2023 — Dec 2023",
     location: "Remote",
-    phase: "Backend foundations and delivery systems",
+    phase: "Backend foundations",
     summary:
-      "Built scalable backend systems with Node.js, Express.js, and Koa.js, improving availability, API speed, database performance, security, and deployment flow.",
+      "Built scalable backend systems with Node.js, improving availability, API speed, database performance, and deployment flow.",
     ownership: [
-      "Built scalable backend systems with high availability and fault tolerance.",
-      "Improved PostgreSQL performance through indexing, query optimization, and data modeling.",
-      "Developed microservices-based backend and asynchronous workflows.",
-      "Implemented JWT, OAuth 2.0, and access control mechanisms.",
-      "Designed CI/CD pipelines with GitHub Actions.",
+      "Built scalable, fault-tolerant backend services with Node.js, Express, and Koa.",
+      "Improved PostgreSQL performance through indexing, query tuning, and data modeling.",
+      "Implemented JWT, OAuth 2.0, and access control across services.",
+      "Set up CI/CD pipelines with GitHub Actions for faster, safer releases.",
     ],
     impact: [
-      "Handled 1M+ concurrent requests.",
-      "Boosted PostgreSQL performance by 30%.",
-      "Cut API response times by 25%.",
-      "Improved delivery speed through automated deployments.",
+      { value: "1M+", label: "Concurrent requests" },
+      { value: "30%", label: "Faster DB queries" },
+      { value: "25%", label: "Faster API responses" },
     ],
-    stack: [
-      "Node.js",
-      "Express.js",
-      "Koa.js",
-      "PostgreSQL",
-      "JWT",
-      "OAuth 2.0",
-      "GitHub Actions",
-    ],
+    stack: ["Node.js", "Express.js", "Koa.js", "PostgreSQL", "GitHub Actions"],
   },
 ];

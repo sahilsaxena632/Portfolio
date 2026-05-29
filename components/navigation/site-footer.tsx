@@ -9,18 +9,34 @@ export function SiteFooter() {
       <Container>
         <div className="flex flex-col gap-4 text-sm text-zinc-400 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {year} {siteConfig.name}. Crafted for performance, clarity, and impact.
+            © {year} {siteConfig.name} · {siteConfig.role}
           </p>
-          <nav aria-label="Footer quick links" className="flex items-center gap-6">
-            {siteConfig.navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="transition-colors hover:text-zinc-100"
-              >
-                {item.label}
-              </a>
-            ))}
+          <nav
+            aria-label="Footer links"
+            className="flex flex-wrap items-center gap-x-6 gap-y-2"
+          >
+            <a
+              href={`mailto:${siteConfig.contact.email}`}
+              className="transition-colors hover:text-zinc-100"
+            >
+              Email
+            </a>
+            <a
+              href={siteConfig.contact.links.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-zinc-100"
+            >
+              LinkedIn
+            </a>
+            <a
+              href={siteConfig.contact.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-zinc-100"
+            >
+              GitHub
+            </a>
           </nav>
         </div>
       </Container>

@@ -1,12 +1,5 @@
 export type SkillCategory = {
-  id:
-    | "frontend"
-    | "backend"
-    | "databases"
-    | "ai-integrations"
-    | "dev-tools"
-    | "cloud-deployment"
-    | "automation";
+  id: "backend" | "data" | "cloud" | "reliability";
   label: string;
   summary: string;
   signal: "mint" | "blue" | "violet";
@@ -15,103 +8,56 @@ export type SkillCategory = {
 
 export const skillCategories: SkillCategory[] = [
   {
-    id: "frontend",
-    label: "Frontend",
-    summary: "UI delivery for product-facing workflows.",
-    signal: "blue",
-    skills: ["React.js", "JavaScript", "WebSockets"],
-  },
-  {
     id: "backend",
-    label: "Backend",
-    summary: "Scalable API and service architecture.",
+    label: "Backend & APIs",
+    summary: "Scalable services and clean API design.",
     signal: "mint",
     skills: [
-      "Node.js",
-      "Express.js",
-      "Koa.js",
+      "Node.js · Express · Koa",
       "Python (FastAPI)",
-      "REST API",
-      "GraphQL",
+      "REST & GraphQL",
       "Microservices",
-      "Event-driven Architecture",
-      "Security (JWT, OAuth 2.0, OWASP, Input Validation)",
+      "Event-driven architecture",
+      "LLM integration (Gemini, Groq)",
     ],
   },
   {
-    id: "databases",
-    label: "Databases",
-    summary: "SQL and NoSQL systems with optimization focus.",
+    id: "data",
+    label: "Databases & Caching",
+    summary: "SQL and NoSQL tuned for performance.",
     signal: "violet",
     skills: [
       "PostgreSQL",
-      "MySQL",
-      "SQL Server",
       "MongoDB",
       "DynamoDB",
       "Redis",
-      "Query Optimization",
+      "Query & index optimization",
     ],
   },
   {
-    id: "ai-integrations",
-    label: "AI / Integrations",
-    summary: "Applied AI integration for analytics workflows.",
-    signal: "mint",
-    skills: [
-      "Gemini API integration (DA Copilot)",
-      "Groq fallback provider (DA Copilot)",
-      "External system sync patterns (e.g., BRATS integration)",
-      "[EDIT: add additional AI integration details if needed]",
-    ],
-  },
-  {
-    id: "dev-tools",
-    label: "Dev Tools",
-    summary: "Testing, collaboration, and developer workflow tools.",
+    id: "cloud",
+    label: "Cloud & DevOps",
+    summary: "Cloud-native services and delivery pipelines.",
     signal: "blue",
     skills: [
-      "Mocha",
-      "Chai",
-      "Jest",
-      "Postman",
-      "Git",
-      "Firebase",
-      "PM2",
-      "Agile",
-      "Code Reviews",
-    ],
-  },
-  {
-    id: "cloud-deployment",
-    label: "Cloud / Deployment",
-    summary: "Cloud-native services and deployment pipelines.",
-    signal: "violet",
-    skills: [
-      "AWS Lambda",
-      "EC2",
-      "S3",
-      "API Gateway",
-      "SNS/SQS",
-      "CloudWatch",
+      "AWS (Lambda, EC2, S3)",
+      "SQS / SNS, API Gateway",
       "Docker",
       "CI/CD (GitHub Actions)",
-      "Serverless Architecture",
+      "CloudWatch & ELK",
     ],
   },
   {
-    id: "automation",
-    label: "Automation",
-    summary: "Operational automation for reliability and throughput.",
+    id: "reliability",
+    label: "Reliability & Security",
+    summary: "Keeping systems correct under real load.",
     signal: "mint",
     skills: [
-      "Asynchronous job processing",
-      "Queue-based workflows (PG-Boss, PostgreSQL queues)",
-      "Idempotent processing",
-      "Concurrency controls",
-      "Batch processing",
-      "Automated testing workflows",
-      "Automated deployments (GitHub Actions)",
+      "Queues (PG-Boss)",
+      "Idempotency & concurrency",
+      "JWT / OAuth 2.0",
+      "Automated testing (Jest, Mocha)",
+      "Monitoring & observability",
     ],
   },
 ];

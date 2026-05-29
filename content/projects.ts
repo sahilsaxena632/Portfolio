@@ -1,198 +1,138 @@
 export type ProjectStatus = "active" | "shipped";
 
+export type ProjectLink = {
+  label: string;
+  href: string;
+};
+
+export type ProjectMetric = {
+  value: string;
+  label: string;
+};
+
 export type PortfolioProject = {
   id: string;
   name: string;
-  eyebrow: string;
+  category: string;
   status: ProjectStatus;
+  flagship?: boolean;
+  confidential?: boolean;
+  summary: string;
+  stack: string[];
   problem: string;
   approach: string;
-  stack: string[];
-  impact: string[];
-  outcome: string;
-  role: string;
-  coreFeatures: string[];
-  visualHighlight: string;
-  progress?: string[];
+  result: string;
+  metrics: ProjectMetric[];
+  links?: ProjectLink[];
 };
 
 export const projects: PortfolioProject[] = [
   {
     id: "da-copilot",
     name: "DA Copilot",
-    eyebrow: "Flagship AI Analytics Product",
+    category: "AI Analytics Product",
     status: "active",
-    role: "Product builder / full-stack engineer",
+    flagship: true,
+    summary:
+      "An AI analytics workspace that turns plain-English questions into schema-aware, validated SQL and visual insights.",
+    stack: ["Next.js", "NestJS", "PostgreSQL", "Redis", "Gemini API"],
     problem:
-      "Data analysts lose time moving between schema context, SQL writing, query checks, and dashboard exploration. DA Copilot helps them ask data questions naturally while keeping the workflow grounded in selected tables and schema metadata.",
+      "Analysts lose hours bouncing between schema docs, SQL editors, and dashboards just to answer a single business question.",
     approach:
-      "Build an AI-assisted analytics workspace instead of a chatbot: natural-language questions become schema-aware SQL, queries are validated before execution, and insights are presented through expandable dashboard cards and visual exploration workflows.",
-    stack: [
-      "Next.js",
-      "NestJS",
-      "Gemini API",
-      "Groq fallback",
-      "PostgreSQL",
-      "Redis",
-      "Docker",
+      "Built a workspace — not a chatbot — that grounds prompts in selected tables, generates SQL, and validates every query before it runs, with a Gemini/Groq fallback for resilient AI calls.",
+    result:
+      "Question to safe SQL to chart in one flow, with a Dockerized stack and provider failover keeping the experience reliable.",
+    metrics: [
+      { value: "1 flow", label: "Question → SQL → insight" },
+      { value: "2x", label: "LLM providers with failover" },
+      { value: "100%", label: "Queries validated pre-run" },
     ],
-    impact: [
-      "Positions AI as a practical analytics productivity layer for real data workflows.",
-      "Uses LLM provider fallback for more resilient AI-assisted experiences.",
-      "Applies production-minded architecture to an active product, not a demo-style chatbot.",
+    links: [
+      { label: "GitHub", href: "https://github.com/sahilsaxena632" },
     ],
-    outcome:
-      "Active development product focused on safer, faster analyst workflows from question to SQL to visual insight.",
-    coreFeatures: [
-      "Natural-language analytics questions",
-      "Schema-aware SQL generation using selected tables and metadata",
-      "Query validation before execution",
-      "Interactive insight cards with charts and expandable details",
-      "Dockerized local environment with PostgreSQL and Redis",
-    ],
-    progress: [
-      "Active product in development",
-      "Core analytics workflow defined and being built",
-      "[EDIT: add current milestone, demo link, or screenshots]",
-    ],
-    visualHighlight:
-      "Show a command-center style product card with an analyst question, generated SQL, validation state, and insight cards.",
   },
   {
     id: "stars-logistics-platform",
     name: "STARS Logistics Platform",
-    eyebrow: "Logistics Systems",
+    category: "Logistics Systems · Fig1 Inc.",
     status: "shipped",
-    role: "Contract Software Engineer - Fig1 Inc.",
+    confidential: true,
+    summary:
+      "High-volume logistics backend spanning API, sync, and queue-driven processing for reliable distributed workflows.",
+    stack: ["Node.js", "PostgreSQL", "PG-Boss", "REST APIs"],
     problem:
-      "A high-volume logistics platform needed reliable backend services across API, sync, and queue-based workflows.",
+      "A high-volume logistics platform needed dependable API, sync, and background processing without losing data integrity across systems.",
     approach:
-      "Enhanced API server, sync service, and asynchronous processing using PG-Boss and PostgreSQL queues, with idempotency and concurrency controls to protect distributed data integrity.",
-    stack: ["Node.js", "REST APIs", "PostgreSQL", "PG-Boss", "Queues"],
-    impact: [
-      "Handled 100K+ daily transactions.",
-      "Processed 50K+ background jobs/day.",
-      "Reduced response times by up to 35%.",
-      "Reduced manual discrepancies by 40%.",
-      "Reduced queue failures and retry rates by 25%.",
+      "Hardened the API and sync services and moved heavy work to PG-Boss queues, adding idempotency and concurrency controls to protect distributed state.",
+    result:
+      "Faster APIs, fewer queue failures, and near real-time consistency with the external BRATS system.",
+    metrics: [
+      { value: "100K+", label: "Daily transactions" },
+      { value: "35%", label: "Faster API responses" },
+      { value: "40%", label: "Fewer data discrepancies" },
     ],
-    outcome:
-      "More reliable logistics workflows with faster APIs, stronger queue processing, and near real-time external system consistency.",
-    coreFeatures: [
-      "Transload, inbound, and outbound REST APIs",
-      "BRATS external-system sync",
-      "Queue-backed background processing",
-      "PostgreSQL indexing and query optimization",
-      "Idempotent processing and concurrency controls",
-    ],
-    visualHighlight:
-      "Show a logistics operations pipeline with transactions, queue workers, sync service, and reliability metrics.",
   },
   {
     id: "100-panel",
     name: "100 Panel",
-    eyebrow: "Real-Time Betting Backend",
+    category: "Real-Time Backend · Etelligens",
     status: "shipped",
-    role: "Software Engineer - Etelligens Technologies",
+    confidential: true,
+    summary:
+      "Event-driven, real-time betting backend built for high throughput, fault tolerance, and strong consistency.",
+    stack: ["Python", "Node.js", "AWS Lambda", "DynamoDB", "WebSockets"],
     problem:
-      "Real-time betting workflows needed high-performance backend processing with strong consistency and microsecond-level accuracy requirements.",
+      "Real-time betting demanded high-throughput processing with strong consistency and microsecond-level accuracy.",
     approach:
-      "Built backend modules in Python and Node.js using AWS services, event-driven architecture, WebSockets, and a mix of monolithic, serverless, and microservices-based systems.",
-    stack: [
-      "Python",
-      "Node.js",
-      "AWS Lambda",
-      "SNS",
-      "EC2",
-      "S3",
-      "WebSockets",
-      "DynamoDB",
-      "PostgreSQL",
-      "Redis",
+      "Built event-driven workflows across monolith, serverless, and microservices using AWS, WebSockets, Redis caching, and DynamoDB with strong consistency.",
+    result:
+      "A fault-tolerant real-time backend that scales with traffic while keeping latency and cloud cost in check.",
+    metrics: [
+      { value: "1M", label: "Read/write ops per second" },
+      { value: "99%", label: "DynamoDB availability" },
+      { value: "25%", label: "Lower API cost" },
     ],
-    impact: [
-      "Supported scalable real-time processing.",
-      "Implemented betting workflows requiring microsecond-level accuracy.",
-      "Optimized backend workflows for performance, scalability, and cost-efficiency.",
-    ],
-    outcome:
-      "A real-time backend foundation designed for fault tolerance, high-volume data, caching, and strong consistency.",
-    coreFeatures: [
-      "Event-driven betting workflows",
-      "WebSocket-based real-time communication",
-      "Serverless and microservices integration",
-      "High-volume data handling with caching",
-      "Fault-tolerant backend architecture",
-    ],
-    visualHighlight:
-      "Use an event-stream visual with timing, WebSocket, cache, and AWS service nodes.",
   },
   {
     id: "workflow-app-backend",
     name: "Workflow App Backend",
-    eyebrow: "Logistics Workflow APIs",
+    category: "Logistics APIs · Fig1 Inc.",
     status: "shipped",
-    role: "Software Engineer - Fig1 Inc.",
+    confidential: true,
+    summary:
+      "Secure, documented REST and microservice layer powering logistics workflow management.",
+    stack: ["Node.js", "Koa.js", "PostgreSQL", "Redis", "OAuth 2.0"],
     problem:
-      "Logistics management workflows needed secure APIs, service documentation, data performance, and dependable integration with frontend teams.",
+      "Logistics workflows needed secure APIs, clean documentation, and dependable performance for frontend teams to build on.",
     approach:
-      "Built and deployed RESTful APIs and microservices using Node.js and Koa.js, with secure OAuth 2.0/JWT access, database optimization, Redis caching, automated tests, monitoring, and Swagger documentation.",
-    stack: [
-      "Node.js",
-      "Koa.js",
-      "PostgreSQL",
-      "MongoDB",
-      "Redis",
-      "OAuth 2.0",
-      "JWT",
-      "Mocha",
-      "Jest",
-      "Supertest",
-      "Swagger",
+      "Shipped RESTful microservices with OAuth 2.0/JWT auth, Redis caching, query optimization, automated tests, monitoring, and Swagger docs.",
+    result:
+      "A secure, well-documented backend with faster queries and tighter frontend-backend integration.",
+    metrics: [
+      { value: "1M+", label: "Concurrent requests" },
+      { value: "30%", label: "Faster DB queries" },
+      { value: "25%", label: "Faster API responses" },
     ],
-    impact: [
-      "Improved backend reliability through logging, monitoring, and automated testing.",
-      "Improved data performance with modeling, caching, and query optimization.",
-      "[EDIT: add measurable business or performance metric if available]",
-    ],
-    outcome:
-      "A secure, documented backend layer for logistics workflows with stronger frontend-backend integration.",
-    coreFeatures: [
-      "RESTful logistics APIs",
-      "Microservices architecture",
-      "OAuth 2.0 and JWT authentication",
-      "Redis caching and query optimization",
-      "Swagger API documentation",
-    ],
-    visualHighlight:
-      "Show an API lifecycle card: auth, services, database, tests, documentation, monitoring.",
   },
   {
     id: "warehouse-app-backend",
     name: "Warehouse App Backend",
-    eyebrow: "Warehouse Logistics Infrastructure",
+    category: "Warehouse Infra · Fig1 Inc.",
     status: "shipped",
-    role: "Software Engineer - Fig1 Inc.",
+    confidential: true,
+    summary:
+      "Backend foundation for inventory, orders, shipments, and reporting — built from the ground up.",
+    stack: ["Node.js", "Express.js", "Koa.js", "PostgreSQL"],
     problem:
-      "Warehouse logistics needed backend infrastructure for inventory tracking, order management, shipment processing, reporting, and secure access.",
+      "Warehouse operations needed backend infrastructure for inventory, orders, shipments, and fast reporting with secure access.",
     approach:
-      "Established backend infrastructure from scratch using Node.js, Express.js, and Koa.js, then designed RESTful APIs and optimized PostgreSQL reporting queries with indexing.",
-    stack: ["Node.js", "Express.js", "Koa.js", "PostgreSQL", "REST APIs"],
-    impact: [
-      "Established backend infrastructure from scratch.",
-      "Supported fast reporting and analytics through PostgreSQL indexing and query optimization.",
-      "[EDIT: add operational scale, latency, or reporting metric if available]",
+      "Stood up the backend from scratch, designed REST APIs, and tuned PostgreSQL reporting with indexing, access control, and rate limiting.",
+    result:
+      "A reliable warehouse backend with fast reporting and a clean base for new features to ship on.",
+    metrics: [
+      { value: "0 → 1", label: "Backend built from scratch" },
+      { value: "30%", label: "Faster reporting queries" },
+      { value: "5", label: "Core API domains" },
     ],
-    outcome:
-      "A foundational warehouse backend for inventory, orders, shipments, reporting, and sensitive data protection.",
-    coreFeatures: [
-      "Inventory tracking APIs",
-      "Order management APIs",
-      "Shipment processing APIs",
-      "PostgreSQL reporting optimization",
-      "Authentication, access control, and rate limiting",
-    ],
-    visualHighlight:
-      "Show a warehouse flow from inventory to orders to shipments to reporting with security gates.",
   },
 ];

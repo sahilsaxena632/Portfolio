@@ -43,31 +43,33 @@ export function AboutSection() {
         >
           <SectionHeading
             eyebrow="About"
-            title="Engineering for scale, calm, and useful outcomes."
-            description="A short story behind the systems and the direction I'm building toward."
+            title="I like backend problems that don't have neat answers."
+            description="Queues that can't drop a job, APIs that have to stay fast under load, databases that need to be both correct and quick."
           />
 
-          <div className="space-y-5 text-base leading-8 text-zinc-300">
+          <div className="space-y-5 text-[15px] leading-8 text-zinc-300 sm:text-base">
             <p>
-              I&apos;m a software engineer with 3+ years of production
-              backend and cloud-native experience. My work has focused on
-              scalable APIs, distributed workflows, queue reliability,
-              database performance, and cloud cost optimization across
-              logistics and high-throughput systems.
+              I&apos;m a backend engineer based in Faridabad with 3+ years
+              shipping production systems for logistics and high-throughput
+              platforms. Most of my work lives in the unglamorous-but-critical
+              layer: REST and serverless APIs, queue-driven workflows, and the
+              database and caching decisions that decide whether a system holds
+              up at scale.
             </p>
             <p>
-              Across roles at Fig1 Inc. and Etelligens Technologies, I&apos;ve
-              shipped systems handling 100K+ daily transactions, 50K+
-              background jobs/day, and 1M+ concurrent requests — improving
-              response times, reducing failures, and cutting AWS API costs.
+              At Fig1 and Etelligens I&apos;ve built services handling 100K+
+              daily transactions and 1M+ concurrent requests, cut API latency
+              and cloud cost, and made async pipelines reliable with idempotency
+              and concurrency controls. I care about the boring details —
+              retries, indexes, observability — because that&apos;s what keeps
+              systems calm in production.
             </p>
             <p>
-              I&apos;m currently shaping{" "}
-              <span className="text-[var(--accent-mint)]">DA Copilot</span>,
-              an AI-assisted analytics workspace for data analysts —
-              applying the same production discipline to natural-language
-              data workflows, schema-aware SQL generation, and validated
-              insight exploration.
+              Right now I&apos;m building{" "}
+              <span className="text-[var(--accent-mint)]">DA Copilot</span>, an
+              AI analytics workspace that turns plain-English questions into
+              validated SQL — applying the same backend discipline to a brand-new
+              kind of product.
             </p>
           </div>
         </motion.div>

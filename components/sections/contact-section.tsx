@@ -14,17 +14,24 @@ const contactActions = [
     external: false,
   },
   {
-    id: "github",
-    label: "GitHub",
-    value: siteConfig.contact.links.github,
-    href: siteConfig.contact.links.github,
-    external: true,
+    id: "phone",
+    label: "Phone",
+    value: siteConfig.contact.phone,
+    href: `tel:${siteConfig.contact.phone.replace(/\s+/g, "")}`,
+    external: false,
   },
   {
     id: "linkedin",
     label: "LinkedIn",
-    value: siteConfig.contact.links.linkedin,
+    value: "in/sahil-saxena",
     href: siteConfig.contact.links.linkedin,
+    external: true,
+  },
+  {
+    id: "github",
+    label: "GitHub",
+    value: "github.com/sahilsaxena632",
+    href: siteConfig.contact.links.github,
     external: true,
   },
 ] as const;
@@ -50,14 +57,14 @@ export function ContactSection() {
           />
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-end">
             <div className="space-y-5">
-              <p className="eyebrow">Closing Signal</p>
+              <p className="eyebrow">Get in touch</p>
               <h2 className="font-display max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
-                Let&apos;s build the next useful product layer for real users.
+                Looking for a backend engineer who sweats the details?
               </h2>
               <p className="max-w-2xl text-sm leading-7 text-zinc-300 sm:text-base">
-                I&apos;m open to backend, platform, and AI-assisted product engineering opportunities.
-                If you&apos;re building systems that need scale, reliability, and practical AI workflows,
-                I&apos;d love to connect.
+                I&apos;m open to backend and platform roles. If you&apos;re
+                building systems that have to stay fast and reliable under real
+                load, I&apos;d be glad to talk. I usually reply within a day.
               </p>
               <div className="flex flex-wrap items-center gap-2">
                 <span className="rounded-full border border-white/12 bg-black/25 px-3 py-1 text-xs text-zinc-300">
@@ -103,20 +110,6 @@ function ContactButton({
 }) {
   const commonClassName =
     "group flex items-center justify-between rounded-2xl border border-white/12 bg-black/25 px-4 py-3 text-left transition duration-300 hover:border-white/30 hover:bg-white/[0.08]";
-
-  if (external && value.startsWith("[EDIT")) {
-    return (
-      <div className={`${commonClassName} cursor-not-allowed opacity-80`} aria-disabled="true">
-        <span>
-          <span className="block text-[11px] uppercase tracking-[0.18em] text-zinc-500">
-            {label}
-          </span>
-          <span className="mt-1 block text-sm text-zinc-300">{value}</span>
-        </span>
-        <span className="text-zinc-500">→</span>
-      </div>
-    );
-  }
 
   return (
     <a
